@@ -1,0 +1,16 @@
+.enviado{
+    background-color: #FAFF70;
+}
+
+.autorizado{
+    background-color: #9ECE9A;
+}
+
+.rechazado{
+    background-color: #FE5F55;
+}
+
+h1{
+    font-weight: 700;
+    font-size: 30px;
+}

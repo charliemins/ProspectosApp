@@ -1,0 +1,35 @@
+.font{
+    font-size: 18px;
+}
+
+.card-text{
+    font-size: 16px;
+}
+
+.subtitle{
+    font-weight: 800;
+}
+
+.circle{
+    cursor: pointer;
+    border: solid 3px #9ECE9A;
+    border-radius: 100%;
+    font-size: 35px;
+}
+
+.circle:hover{
+    background-color: #247ba0;
+    color: #fff;
+}
+
+.circle2{
+    cursor: pointer;
+    border: solid 3px #FE5F55;
+    border-radius: 100%;
+    font-size: 35px;
+}
+
+.circle2:hover{
+    background-color: #247ba0;
+    color: #fff;
+}

@@ -1,0 +1,118 @@
+<div class="container">
+    <div class="text-end">
+        <span (click)="salir()" class="material-icons circle">
+            close
+        </span>
+    </div>
+    <h1>CAPTURA DE PROSPECTO</h1>
+    <form [formGroup]="miFormulario" class="justify-content-center mb-5">
+        <div class="row">
+            <div class="col-6 mt-3">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Nombre(s)</mat-label>
+                    <input formControlName="nombre" matInput>
+                    <mat-error>{{getErrorMessage('nombre')}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-3 mt-3">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Primer apellido</mat-label>
+                    <input formControlName="primer_apellido" matInput>
+                    <mat-error>{{getErrorMessage('primer_apellido')}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-3 mt-3">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Segundo apellido</mat-label>
+                    <input formControlName="segundo_apellido" matInput>
+                    <mat-error>{{getErrorMessage('segundo_apellido')}}</mat-error>
+                </mat-form-field>
+            </div>
+            
+            <div class="col-4 mt-3">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Calle</mat-label>
+                    <input formControlName="calle" matInput>
+                    <mat-error>{{getErrorMessage('calle')}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-2 mt-3">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Número</mat-label>
+                    <input type="number" formControlName="numero" matInput>
+                    <mat-error>{{getErrorMessage('numero')}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-4 mt-3">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Colonia</mat-label>
+                    <input formControlName="colonia" matInput>
+                    <mat-error>{{getErrorMessage('colonia')}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-2 mt-3">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Código Postal</mat-label>
+                    <input matInput #cp maxlength="5" placeholder="Ej. 83220" formControlName="codigo_postal">
+                    <mat-hint align="end">{{cp.value?.length || 0}}/5</mat-hint>
+                    <mat-error>{{getErrorMessage('codigo_postal')}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-3 mt-3">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Teléfono</mat-label>
+                    <input  matInput maxlength="10" formControlName="telefono" required>
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <mat-error>{{getErrorMessage('telefono')}}</mat-error>
+                    </mat-form-field>
+            </div>
+            <div class="col-4 mt-3">
+                <mat-form-field class="w-100" hintLabel="Max 13 caracteres" appearance="fill">
+                    <mat-label>RFC</mat-label>
+                    <input class="mayus" matInput #rfc maxlength="13" placeholder="Ej. CUPU800825569" formControlName="rfc">
+                    <mat-hint align="end">{{rfc.value?.length || 0}}/13</mat-hint>
+                    <mat-error>{{getErrorMessage('rfc')}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-5 mt-4">
+                <input type="file" name="" id="">
+            </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-2">
+                <button (click)="enviar()" [disabled]="miFormulario.invalid" class="w-100" mat-raised-button>Enviar</button>
+            </div>
+            <div class="col-2">
+                <button mat-raised-button (click)="salir()" class="btnSalir w-100">Salir</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        <h2 class="text-center mt-5"><span>Prospectos registrados</span> </h2>
+        <table *ngIf="prospectos?.length != 0" class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">RFC</th>
+            <th scope="col">Número</th>
+            <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of prospectos; let i = index">
+            <tr>
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.nombre|titlecase}} {{item.primer_apellido|titlecase}} {{item.segundo_apellido|titlecase}}</td>
+            <td>{{item.rfc}}</td>
+            <td>{{item.numero}}</td>
+            <td [ngClass]="{'enviado': item.status == 'enviado', 'autorizado': item.status == 'autorizado', 'rechazado': item.status == 'rechazado'}">{{item.status|titlecase}}</td>
+            </tr>
+        </tbody>
+        </table>
+
+        <div *ngIf="prospectos?.length == 0" class="alert alert-secondary" role="alert">
+            Sin prospectos registrados.
+        </div>
+    </div>
+</div>

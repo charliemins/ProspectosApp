@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <h2 class="text-center mt-5"><span>Prospectos registrados</span> </h2>
+
+        <div *ngFor="let item of prospectos" class="col-3 pointer d-flex justify-content-center mt-4">
+            <div class="card w-100">
+                <h4 class="card-header text-center font">{{item.nombre|titlecase}} {{item.primer_apellido|titlecase}} {{item.segundo_apellido|titlecase}}</h4>
+                <div class="card-body text-center">
+                    <p class="card-text"><span class="subtitle">Calle: </span><span>{{item.calle|titlecase}}</span></p>
+                    <p class="card-text"><span class="subtitle">Número: </span><span>{{item.numero}}</span></p>
+                    <p class="card-text"><span class="subtitle">Colonia: </span><span>{{item.colonia|titlecase}}</span></p>
+                    <p class="card-text"><span class="subtitle">CP: </span><span>{{item.codigo_postal}}</span></p>
+                    <p class="card-text"><span class="subtitle">Teléfono: </span><span>{{item.telefono}}</span></p>
+                    <p class="card-text"><span class="subtitle">RFC: </span><span>{{item.rfc|uppercase}}</span></p>
+                </div>
+                <div class="text-center mb-2">
+                    <span (click)="autorizar(item.id)" class="material-icons circle">
+                        done
+                    </span>
+                    &nbsp;
+                    <span (click)="rechazar()" class="material-icons circle2">
+                        close
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="prospectos?.length == 0" class="alert alert-secondary" role="alert">
+            Sin prospectos registrados.
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <h1 class="text-center mt-5"><span>PROSPECTOS REGISTRADOS</span> </h1>
+        <table *ngIf="prospectos?.length != 0" class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Calle</th>
+            <th scope="col">Número</th>
+            <th scope="col">Colonia</th>
+            <th scope="col">CP</th> 
+            <th scope="col">Teléfono</th> 
+            <th scope="col">RFC</th> 
+            <th scope="col">Status</th>
+            <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of prospectos; let i = index">
+            <tr>
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.nombre|titlecase}} {{item.primer_apellido|titlecase}} {{item.segundo_apellido|titlecase}}</td>
+            <td>{{item.calle|titlecase}}</td>
+            <td>{{item.numero}}</td>
+            <td>{{item.colonia|titlecase}}</td>
+            <td>{{item.codigo_postal}}</td>
+            <td>{{item.telefono}}</td>
+            <td>{{item.rfc|uppercase}}</td>
+            <td [ngClass]="{'enviado': item.status == 'enviado', 'autorizado': item.status == 'autorizado', 'rechazado': item.status == 'rechazado'}">{{item.status|titlecase}}</td>
+            <td>
+                <button mat-raised-button (click)="consultar(item.id)">Consultar</button>
+            </td>
+            </tr>
+        </tbody>
+        </table>
+
+        <div *ngIf="prospectos?.length == 0" class="alert alert-secondary" role="alert">
+            Sin prospectos registrados.
+        </div>
+    </div>
+</div>

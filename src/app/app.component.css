@@ -1,0 +1,94 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .example-is-mobile .example-toolbar {
+    position: fixed;
+    z-index: 2;
+  }
+  
+  h1.example-app-name {
+    margin-left: 8px;
+    color: #fff;
+  }
+
+  .mat-icon{
+    color: #fff;
+  }
+  
+  .example-sidenav-container {
+    flex: 1;
+  }
+  
+  .example-is-mobile .example-sidenav-container {
+    flex: 1 0 auto;
+  }
+
+  mat-nav-list{
+      min-width: 200px;
+  }
+
+  .titulo-app{
+      display: flex;
+      align-items: center;
+  }
+
+  mat-toolbar{
+      display: flex;
+      justify-content: space-between;
+      background-color: #247ba0;
+  }
+
+  mat-toolbar a{
+      color: white;
+      font-size: 14px;
+      text-decoration: none;
+      
+  }
+
+  mat-sidenav-content{
+      padding: 30px;
+  }
+
+  .mat-nav-list a{
+    color: white;
+  }
+
+  .active{
+    background-color: white !important;
+    color: #5E555A !important;
+  }
+ 
+  .active2{
+    color: #5E555A !important;
+  }
+
+  mat-sidenav{
+    background-color: #5E555A;
+  }
+
+  .titulo-seccion
+  {
+    background-color: #2F9692;
+    color: white;
+    padding: 10px;
+    margin-top: 0 !important;
+  }
+
+  div.mat-list-item-content
+  {
+    min-width: 30px !important;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .menuT{
+    color: #fff;
+    border: 2px solid #5E555A;
+  }

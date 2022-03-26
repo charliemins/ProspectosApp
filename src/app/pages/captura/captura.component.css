@@ -1,0 +1,47 @@
+.container{
+    max-width: 60%;
+}
+
+.mayus{
+    text-transform: uppercase;
+}
+
+.btnSalir{
+    color: #fff;
+    background-color: grey;
+}
+
+.circle{
+    cursor: pointer;
+    border: solid 3px #247ba0;
+    border-radius: 100%;
+    font-size: 35px;
+}
+
+.circle:hover{
+    background-color: #247ba0;
+    color: #fff;
+}
+
+.enviado{
+    background-color: #FAFF70;
+}
+
+.autorizado{
+    background-color: #9ECE9A;
+}
+
+.rechazado{
+    background-color: #FE5F55;
+}
+
+h1{
+    font-weight: 700;
+    font-size: 30px;
+}
+
+h2 span{
+    padding: 8px;
+    border: solid 2px #247ba0;
+    border-radius: 20px;
+}
